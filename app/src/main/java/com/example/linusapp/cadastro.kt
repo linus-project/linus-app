@@ -3,9 +3,9 @@ package com.example.linusapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class cadastro : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_apresentacao)
+        setContentView(R.layout.activity_cadastro)
     }
 }

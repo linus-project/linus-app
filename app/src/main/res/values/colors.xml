@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple">#9400D3</color>
+    <color name="green_water">#52BCBF</color>
+    <color name="bg_dark_gray">#131314</color>
+    <color name="bg_ligth_gray">#353333</color>
+    <color name="fc_gray">#7E7E81</color>
+    <color name="fc_light_gray">#6B6B6C</color>
+    <color name="fc_light_gray2">#D1D1D1</color>
+    <color name="bg_white">#F5F5F5</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>

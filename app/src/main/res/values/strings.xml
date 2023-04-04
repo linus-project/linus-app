@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Linus App</string>
+    <string name="ola">Olá!</string>
+    <string name="intro1">Ficamos felizes em te ter por\n aqui...</string>
+    <string name="intro2">Vamos começar?</string>
+    <string name="cadastrar">Cadastrar-se</string>
+    <string name="login">Logar</string>
+
 </resources>

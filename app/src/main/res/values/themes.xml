@@ -16,4 +16,7 @@
     <style name="bg_color_app">
         <item name="android:background">@color/bg_dark_gray</item>
     </style>
+    <style name="bg_color_noticia">
+        <item name="android:background">@color/bg_ligth_gray</item>
+    </style>
 </resources>

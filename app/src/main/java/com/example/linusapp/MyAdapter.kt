@@ -29,10 +29,18 @@ class MyAdapter(private val context: Context, private val myModelArrayList: Arra
         view.findViewById<ImageView>(R.id.bannerIv)
         view.findViewById<TextView>(R.id.titleTv)
         view.findViewById<TextView>(R.id.descriptionTv)
+
         view.setOnClickListener{
             Toast.makeText(context, "$title \n $description", Toast.LENGTH_SHORT).show()
         }
 
-        return super.instantiateItem(container, position)
+        container.addView(view, position)
+
+        return view
     }
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        container.removeView(`object` as View)
+    }
+
 }

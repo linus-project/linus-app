@@ -9,7 +9,6 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:margin="10dp"
         app:cardCornerRadius="22dp">
 
         <LinearLayout
@@ -22,26 +21,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/basico"/>
+                android:src="@drawable/basico"
+                />
 
             <TextView
                 android:id='@+id/titleTv'
                 android:padding="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Titulo"
-                android:textSize="30sp"/>
+                android:text="Título"
+                android:fontFamily="@font/montserrat_semibold"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:background="@color/purple"/>
 
             <TextView
                 android:id='@+id/descriptionTv'
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Titulo"
+                android:text="Subtítulo"
+                android:fontFamily="@font/montserrat_medium"
+                android:textColor="@color/white"
                 android:textSize="20sp"
-                android:marginStart="8dp"
+                android:padding="8dp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:minLines="3"/>
+                android:minLines="3"
+                android:background="@color/purple"/>
 
         </LinearLayout>
 

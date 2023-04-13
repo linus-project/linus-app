@@ -18,10 +18,20 @@
         <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/activity_apresentacao.xml" value="0.25" />
         <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/activity_cadastro.xml" value="0.25" />
         <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/activity_inicial.xml" value="0.25" />
-        <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/activity_noticias.xml" value="0.264" />
         <entry key="..\:/Users/mayar/OneDrive/Documentos/linus-app/app/src/main/res/layout/login.xml" value="0.25" />
+        <entry key="app/src/main/res/font/montserrat.xml" value="0.1984375" />
+        <entry key="app/src/main/res/font/montserrat_light.xml" value="0.1984375" />
+        <entry key="app/src/main/res/font/montserrat_medium.xml" value="0.1984375" />
+        <entry key="app/src/main/res/font/montserrat_semibold.xml" value="0.1984375" />
+        <entry key="app/src/main/res/layout/activity_apresentacao.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/activity_cadastro.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/activity_conteudo_favoritado.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/activity_inicial.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/activity_noticias.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/activity_onboarding.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_visto_por_ultimo.xml" value="0.16822916666666668" />
+        <entry key="app/src/main/res/layout/image_container.xml" value="0.22" />
       </map>
     </option>
   </component>

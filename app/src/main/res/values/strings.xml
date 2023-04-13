@@ -5,5 +5,9 @@
     <string name="intro2">Vamos começar?</string>
     <string name="cadastrar">Cadastrar-se</string>
     <string name="login">Logar</string>
+    <string name="visto_por_ultimo">Visto Por Último</string>
+    <string name="conteudo_favoritado">Conteúdo Favoritado</string>
+    <string name="titulo_conteudo">Conteúdo 1</string>
+    <string name="carrossel_conteudo">2022 TÜBA \nAkademi Ödülleri Ça \n2022 TÜBA</string>
 
 </resources>

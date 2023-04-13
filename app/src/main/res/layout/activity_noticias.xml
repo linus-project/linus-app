@@ -2,10 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/bg_color_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".noticias"
-    style="@style/bg_color_app">
+    tools:context=".noticias">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -26,132 +27,149 @@
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
         android:orientation="vertical">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_semibold"
             android:gravity="center"
+            android:paddingTop="120dp"
+            android:paddingBottom="49dp"
             android:text="Notícias"
             android:textColor="@color/green_water"
-            android:fontFamily="@font/montserrat_semibold"
-            android:textSize="40sp"
-            android:paddingTop="120dp"
-            android:paddingBottom="49dp"/>
+            android:textSize="40sp" />
+
         <LinearLayout
+            style="@style/bg_color_noticia"
             android:layout_width="380dp"
             android:layout_height="165dp"
-            style="@style/bg_color_noticia"
             android:layout_marginBottom="38dp">
+
             <LinearLayout
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:gravity="left"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="15dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:text="Notícia 1"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_bold"
                     android:textSize="27sp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat."
                     android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_medium"
                     android:textSize="13sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:gravity="right"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="15dp">
+
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="120dp"
-                    android:src="@mipmap/noticia1"/>
+                    android:src="@mipmap/noticia1" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
+            style="@style/bg_color_noticia"
             android:layout_width="380dp"
             android:layout_height="110dp"
-            style="@style/bg_color_noticia"
             android:gravity="center_horizontal">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="15dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:text="Notícia 1"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_bold"
                     android:textSize="27sp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat."
                     android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_medium"
                     android:textSize="13sp" />
 
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="38dp"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_marginBottom="38dp">
+            android:orientation="vertical">
+
             <ImageView
                 android:layout_width="380dp"
                 android:layout_height="120dp"
-                android:src="@mipmap/noticia3"/>
+                android:src="@mipmap/noticia3" />
         </LinearLayout>
 
 
         <LinearLayout
+            style="@style/bg_color_noticia"
             android:layout_width="380dp"
             android:layout_height="165dp"
-            style="@style/bg_color_noticia"
             android:layout_marginBottom="38dp">
+
             <LinearLayout
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:gravity="left"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="15dp">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:text="Notícia 1"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_bold"
                     android:textSize="27sp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_medium"
                     android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat."
                     android:textColor="@color/white"
-                    android:fontFamily="@font/montserrat_medium"
                     android:textSize="13sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="15dp"
                 android:gravity="right"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="15dp">
+
                 <ImageView
                     android:layout_width="200dp"
                     android:layout_height="120dp"
-                    android:src="@mipmap/noticia2"/>
+                    android:src="@mipmap/noticia2" />
             </LinearLayout>
         </LinearLayout>
 

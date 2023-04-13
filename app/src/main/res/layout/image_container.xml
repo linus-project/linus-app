@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:adjustViewBounds="true"
+        app:cardCornerRadius="22dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#9400D3"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/nivel_basico" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="15dp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:text="@string/titulo_conteudo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="@string/carrossel_conteudo"
+                    android:textColor="#FFFFFF"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/seta"
+                    android:layout_width="150dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/seta" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

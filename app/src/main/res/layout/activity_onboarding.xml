@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Onboarding">
 
-    <LinearLayout
+   <!-- <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -78,5 +78,5 @@
                 android:layout_alignBottom="@id/button1"
                 android:layout_marginLeft="150dp"/>
         </RelativeLayout>
-    </LinearLayout>
+    </LinearLayout>-->
 </androidx.constraintlayout.widget.ConstraintLayout>

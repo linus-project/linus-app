@@ -19,4 +19,7 @@
     <style name="bg_color_noticia">
         <item name="android:background">@color/bg_ligth_gray</item>
     </style>
+    <style name="font_padrao">
+        <item name="android:textColor">@color/green_water</item>
+    </style>
 </resources>

@@ -9,7 +9,6 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:margin="10dp"
         app:cardCornerRadius="22dp">
 
         <LinearLayout
@@ -38,7 +37,6 @@
                 android:layout_height="wrap_content"
                 android:text="Titulo"
                 android:textSize="20sp"
-                android:marginStart="8dp"
                 android:ellipsize="end"
                 android:maxLines="3"
                 android:minLines="3"/>

@@ -19,13 +19,10 @@
         <activity android:name=".Onboarding"
             android:exported="true" />
         <activity
-            android:name=".Teste"
+            android:name=".SplashScreen"
             android:exported="false" />
         <activity
             android:name=".ActivityConteudoPorNivel"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
             android:exported="false" />
         <activity
             android:name=".cadastro"

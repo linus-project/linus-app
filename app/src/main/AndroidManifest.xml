@@ -31,6 +31,9 @@
             android:name=".inicial"
             android:exported="true" />
         <activity
+            android:name=".ConteudoFavoritado"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

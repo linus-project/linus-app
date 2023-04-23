@@ -18,12 +18,20 @@
             android:orientation="vertical"
             android:gravity="center">
 
+            <ImageView
+                android:layout_width="150.000dp"
+                android:layout_height="200.000dp"
+                android:src="@mipmap/Loginog"
+                android:backgroundTint="#000000"
+                android:layout_gravity="center"
+                android:layout_marginTop="60sp"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="70dp"
+                android:layout_marginTop="20dp"
                 android:textSize="40sp"
-                android:text="Cadastre- se"
+                android:text="Login"
                 android:textColor="@color/green_water"
                 android:layout_gravity="center"/>
 
@@ -33,37 +41,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/User"
-                android:backgroundTint="#000000"
-                android:layout_gravity="center"
-                />
-
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:hint="usuario"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:shadowColor="@color/white"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/white"
-                />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
@@ -71,95 +48,6 @@
                 android:layout_width="50dp"
                 android:layout_height="40dp"
                 android:src="@mipmap/User"
-                android:backgroundTint="#000000"
-                android:layout_gravity="center"
-                />
-
-            <EditText
-                android:id="@+id/senha"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:hint="senha"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:shadowColor="@color/white"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/white"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/mail"
-                android:backgroundTint="#000000"
-                android:layout_gravity="center"
-                />
-
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:hint="usuario"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:shadowColor="@color/white"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/white"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/Lock"
-                android:backgroundTint="#000000"
-                android:layout_gravity="center"
-                />
-
-            <EditText
-                android:id="@+id/email"
-                android:layout_width="300dp"
-                android:layout_height="40dp"
-                android:hint="usuario"
-                android:inputType="textPassword"
-                android:maxLines="1"
-                android:shadowColor="@color/white"
-                android:singleLine="true"
-                android:textColor="@color/white"
-                app:backgroundTint="@color/white"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="40dp"
-                android:src="@mipmap/Lock"
                 android:backgroundTint="#000000"
                 android:layout_gravity="center"
                 />
@@ -182,13 +70,85 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:src="@mipmap/Lock"
+                android:backgroundTint="#000000"
+                android:layout_gravity="center"
+                />
+
+            <EditText
+                android:id="@+id/senha"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:hint="senha"
+                android:inputType="password"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/white"
+                />
+           </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="2dp"
+                    android:textSize="15sp"
+                    android:text="senha incorreta"
+                    android:textColor="@color/fc_light_gray"
+                    android:layout_gravity="right">
+
+                </TextView>
+
+
+
+            </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:textSize="15sp"
+                android:text="esqueceu a senha?"
+                android:textColor="@color/green_water"
+                android:layout_gravity="right">
+
+            </TextView>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="40dp"
             android:layout_gravity="center">
 
 
             <Button
-                android:text="Cadastre-se"
+                android:text="Entrar"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/green_water"

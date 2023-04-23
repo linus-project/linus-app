@@ -61,20 +61,21 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="200dp"
+                android:layout_width="150dp"
                 android:layout_height="50dp"
                 android:text="@string/cadastrar"
                 android:textAlignment="textStart"
-                android:backgroundTint="@color/green_water"/>
+                android:backgroundTint="@color/green_water"
+                android:onClick="redirectToRegister"/>
 
             <Button
                 android:id="@+id/button2"
                 android:backgroundTint="@color/purple"
-                android:layout_width="170dp"
+                android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:text="@string/login"
-                android:layout_alignBottom="@id/button1"
-                android:layout_marginLeft="150dp"/>
+                android:layout_marginLeft="150dp"
+                android:onClick="redirectToLogin"/>
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

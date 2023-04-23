@@ -19,9 +19,6 @@
         <activity android:name=".Onboarding"
             android:exported="true" />
         <activity
-            android:name=".SplashScreen"
-            android:exported="false" />
-        <activity
             android:name=".ActivityConteudoPorNivel"
             android:exported="false" />
         <activity
@@ -34,7 +31,7 @@
             android:name=".ConteudoFavoritado"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

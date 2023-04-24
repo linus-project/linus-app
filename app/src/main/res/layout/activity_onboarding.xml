@@ -61,7 +61,7 @@
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="150dp"
+                android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:text="@string/cadastrar"
                 android:textAlignment="textStart"
@@ -74,7 +74,7 @@
                 android:layout_width="160dp"
                 android:layout_height="50dp"
                 android:text="@string/login"
-                android:layout_marginLeft="150dp"
+                android:layout_marginLeft="160dp"
                 android:onClick="redirectToLogin"/>
         </RelativeLayout>
     </LinearLayout>

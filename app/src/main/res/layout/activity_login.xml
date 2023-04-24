@@ -53,7 +53,7 @@
                 />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/username"
                 android:layout_width="300dp"
                 android:layout_height="40dp"
                 android:hint="Usuário"
@@ -113,12 +113,31 @@
                     android:text="senha incorreta"
                     android:textColor="@color/fc_light_gray"
                     android:layout_gravity="right"
+                    android:id="@+id/wrong_password"
                     android:visibility="invisible">
                 </TextView>
 
 
 
             </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+
+            <Button
+                android:text="Entrar"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/purple"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:onClick="login"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -137,25 +156,6 @@
                 android:layout_gravity="right">
 
             </TextView>
-
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
-
-            <Button
-                android:text="Entrar"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/green_water"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"/>
 
         </LinearLayout>
 

@@ -28,6 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
+                android:fontFamily="@font/montserrat_semibold"
                 android:textSize="40sp"
                 android:text="@string/ola"
                 android:textColor="@color/purple"
@@ -39,6 +40,7 @@
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:textAlignment="center"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="@string/intro1"
                 android:textColor="@color/bg_white"
                 android:layout_gravity="center"/>
@@ -48,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
+                android:fontFamily="@font/montserrat_medium"
                 android:text="@string/intro2"
                 android:textColor="@color/bg_white"
                 android:layout_gravity="center"/>
@@ -59,23 +62,28 @@
             android:clipChildren="false"
             android:gravity="center">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button1"
-                android:layout_width="150dp"
+                android:layout_width="190dp"
                 android:layout_height="50dp"
+                android:background="@drawable/botao_roxo_arredondado"
+                android:fontFamily="@font/montserrat_semibold"
+                android:onClick="redirectToRegister"
                 android:text="@string/cadastrar"
                 android:textAlignment="textStart"
-                android:backgroundTint="@color/green_water"
-                android:onClick="redirectToRegister"/>
+                android:textColor="@color/white"
+                android:paddingLeft="25dp"/>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button2"
-                android:backgroundTint="@color/purple"
                 android:layout_width="160dp"
                 android:layout_height="50dp"
+                android:layout_marginLeft="160dp"
+                android:background="@drawable/botao_verde_arredondado"
+                android:fontFamily="@font/montserrat_semibold"
+                android:onClick="redirectToLogin"
                 android:text="@string/login"
-                android:layout_marginLeft="150dp"
-                android:onClick="redirectToLogin"/>
+                android:textColor="@color/white" />
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

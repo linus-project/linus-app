@@ -46,7 +46,7 @@
                 />
 
             <EditText
-                android:id="@+id/user"
+                android:id="@+id/name_register"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Nome"
@@ -79,7 +79,7 @@
                 />
 
             <EditText
-                android:id="@+id/senha"
+                android:id="@+id/username_register"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Usuário"
@@ -110,11 +110,11 @@
                 />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/email_register"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:inputType="textPassword"
+                android:inputType="text"
                 android:maxLines="1"
                 android:shadowColor="@color/white"
                 android:singleLine="true"
@@ -142,7 +142,7 @@
                 />
 
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/password_register"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:hint="Senha"
@@ -196,8 +196,6 @@
             android:layout_marginTop="40dp"
             android:layout_gravity="center">
 
-
-
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatButton
@@ -208,6 +206,7 @@
             android:background="@drawable/botao_verde_arredondado"
             android:fontFamily="@font/montserrat_semibold"
             android:text="Cadastrar"
+            android:onClick="register"
             android:textColor="@color/white" />
 
         <LinearLayout

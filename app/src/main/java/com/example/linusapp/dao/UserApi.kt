@@ -10,4 +10,6 @@ import retrofit2.http.POST
 interface UserApi {
     @POST("/login/username")
     suspend fun getLogin(@Body user: RequestBody) : Response<ResponseBody>
+    @POST("/users/add")
+    suspend fun addUser(@Body user: RequestBody) : Response<ResponseBody>
 }

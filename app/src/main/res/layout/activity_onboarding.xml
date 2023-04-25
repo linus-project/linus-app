@@ -83,9 +83,7 @@
                 android:fontFamily="@font/montserrat_semibold"
                 android:onClick="redirectToLogin"
                 android:text="@string/login"
-                android:textColor="@color/white"
-                android:layout_marginLeft="160dp"
-                android:onClick="redirectToLogin"/>
+                android:textColor="@color/white"/>
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

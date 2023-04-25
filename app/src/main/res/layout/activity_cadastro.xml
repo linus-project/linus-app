@@ -195,7 +195,7 @@
                 android:text="Cadastre-se"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/green_water"
+                android:backgroundTint="@color/purple"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"/>
 

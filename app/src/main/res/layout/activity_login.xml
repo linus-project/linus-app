@@ -142,6 +142,7 @@
                 android:background="@drawable/botao_verde_arredondado"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Entrar"
+                android:onClick="login"
                 android:textColor="@color/white" />
 
         </LinearLayout>

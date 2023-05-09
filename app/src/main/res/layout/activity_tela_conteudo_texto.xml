@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/bg_color_app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaConteudoTexto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="73dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:src="@mipmap/menu2" />
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="73dp"
+                android:layout_marginLeft="245dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:src="@mipmap/logo1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="20dp"
+                android:src="@mipmap/estrela" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="-60dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="Favoritar"
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:text="Conteúdo 1"
+                    android:textColor="@color/green_water"
+                    android:textSize="40sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:layout_marginLeft="55dp"
+                android:src="@mipmap/noticia1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="300dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/parte1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="55dp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="55dp"
+                    android:fontFamily="@font/montserrat_light"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="300dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/parte2" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

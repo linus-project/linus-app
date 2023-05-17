@@ -9,5 +9,16 @@
     <string name="conteudo_favoritado">Conteúdo Favoritado</string>
     <string name="titulo_conteudo">Conteúdo 1</string>
     <string name="carrossel_conteudo">2022 TÜBA \nAkademi Ödülleri Ça \n2022 TÜBA</string>
+    <string name="title_activity_principal">PrincipalActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
 
 </resources>

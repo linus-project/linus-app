@@ -10,12 +10,11 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="55dp"
@@ -56,82 +55,86 @@
                 android:textSize="10sp" />
         </LinearLayout>
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Conteúdo 1"
+                android:textColor="@color/green_water"
+                android:textSize="40sp" />
+
+        </LinearLayout>
+
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="450dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:gravity="center">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/montserrat_medium"
-                    android:text="Conteúdo 1"
-                    android:textColor="@color/green_water"
-                    android:textSize="40sp" />
-
-            </LinearLayout>
-
-            <ImageView
-                android:layout_width="300dp"
-                android:layout_height="200dp"
-                android:layout_marginLeft="55dp"
-                android:src="@mipmap/noticia1" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="">
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="300dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@mipmap/parte1" />
+                    android:layout_width="300dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/noticia1" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="55dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
-                    android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="40dp">
 
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="275dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_gravity="center"
+                        android:src="@mipmap/parte1" />
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:layout_marginTop="15dp"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
+                        android:textColor="@color/white"
+                        android:textSize="15sp" />
+                </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="">
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="55dp"
-                    android:fontFamily="@font/montserrat_light"
-                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
-                    android:textColor="@color/white"
-                    android:textSize="15sp" />
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="25dp">
 
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="300dp"
-                    android:layout_marginLeft="5dp"
-                    android:src="@mipmap/parte2" />
+                    <TextView
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
+                        android:textColor="@color/white"
+                        android:layout_marginTop="15dp"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="275dp"
+                        android:src="@mipmap/parte2" />
+                </LinearLayout>
 
             </LinearLayout>
         </ScrollView>
-
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

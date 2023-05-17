@@ -35,9 +35,9 @@ class Cadastro : AppCompatActivity() {
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
-                    val news = Intent(applicationContext, Noticias::class.java)
-                    news.putExtra("response", prettyJson)
-                    startActivity(news)
+                    val newsService = Intent(applicationContext, News::class.java)
+                    newsService.putExtra("response", prettyJson)
+                    startActivity(newsService)
                 } else {
                     Toast.makeText(applicationContext, "Houve um erro ao cadastrar", Toast.LENGTH_SHORT).show()
                 }

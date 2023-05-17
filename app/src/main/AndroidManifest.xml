@@ -27,7 +27,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Noticias"
+            android:name=".News"
             android:exported="true" />
         <activity
             android:name=".Onboarding"

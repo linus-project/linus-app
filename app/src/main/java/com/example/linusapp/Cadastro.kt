@@ -48,7 +48,7 @@ class Cadastro : AppCompatActivity() {
     fun mapUserToJson(): JSONObject {
         val jsonObject = JSONObject()
         jsonObject.put("name", findViewById<EditText>(R.id.name_register).text.toString())
-        jsonObject.put("username", findViewById<EditText>(R.id.username_register).text.toString())
+        jsonObject.put("username", findViewById<EditText>(R.id.username_register).text.toString().lowercase())
         jsonObject.put("email", findViewById<EditText>(R.id.email_register).text.toString())
         jsonObject.put("password", findViewById<EditText>(R.id.password_register).text.toString())
         jsonObject.put("fkLevel", 1)

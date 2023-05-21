@@ -3,7 +3,6 @@ package com.example.linusapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import com.example.linusapp.utils.Api
@@ -27,7 +26,7 @@ class Login : AppCompatActivity() {
         val wrongPassword = findViewById<TextView>(R.id.wrong_password)
         val service = Api.getUserApi()
         val jsonObject = JSONObject()
-        jsonObject.put("username", findViewById<TextView>(R.id.username).text.toString())
+        jsonObject.put("username", findViewById<TextView>(R.id.username).text.toString().lowercase())
         jsonObject.put("password", findViewById<TextView>(R.id.password).text.toString())
         val jsonObjectString = jsonObject.toString()
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
@@ -41,9 +40,9 @@ class Login : AppCompatActivity() {
                     val prettyJson = gson.toJson(
                         JsonParser.parseString(response.body()?.string())
                     )
-                    val contentHistory = Intent(applicationContext, VistoPorUltimo::class.java)
-                    contentHistory.putExtra("response", prettyJson)
-                    startActivity(contentHistory)
+                    val activityContent = Intent(applicationContext, ActivityConteudoPorNivel::class.java)
+                    activityContent.putExtra("response", prettyJson)
+                    startActivity(activityContent)
                 } else {
                     wrongPassword.visibility = View.VISIBLE
                 }

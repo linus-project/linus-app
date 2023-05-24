@@ -16,5 +16,35 @@
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_seu_perfil"
+            android:icon="@mipmap/user2"
+            android:title="Seu Perfil"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/bg_white"/>
+        <item
+            android:id="@+id/nav_distribuicoes"
+            android:icon="@mipmap/world"
+            android:title="Distribuições"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/bg_white"/>
+        <item
+            android:id="@+id/nav_visto_por_ultimo"
+            android:icon="@mipmap/eyecheck"
+            android:title="Visto Por Último"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/bg_white"/>
+        <item
+            android:id="@+id/nav_favoritos"
+            android:icon="@mipmap/vector"
+            android:title="Favoritos"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/bg_white"/>
+        <item
+            android:id="@+id/nav_noticias"
+            android:icon="@mipmap/license"
+            android:title="Notícias"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/bg_white"/>
     </group>
 </menu>

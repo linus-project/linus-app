@@ -69,7 +69,7 @@ class VistoPorUltimo : AppCompatActivity() {
         imageList.add(R.drawable.nivel_intermediario)
         imageList.add(R.drawable.nivel_avancado)
 
-        adapter = ImageAdapter(imageList, viewPager2)
+//        adapter = ImageAdapter(imageList, viewPager2)
 
         viewPager2.adapter = adapter
         viewPager2.offscreenPageLimit = 4

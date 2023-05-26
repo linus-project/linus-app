@@ -8,13 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.linusapp.vo.ContentVO
 import kotlin.math.abs
 
 class ConteudoFavoritado : AppCompatActivity() {
 
-    private lateinit var  viewPager2: ViewPager2
+    private lateinit var viewPager2: ViewPager2
     private lateinit var handler : Handler
-    private lateinit var imageList:ArrayList<Int>
+    private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ImageAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +25,7 @@ class ConteudoFavoritado : AppCompatActivity() {
         init()
         setUpTransformer()
 
-        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 handler.removeCallbacks(runnable)
@@ -62,13 +63,12 @@ class ConteudoFavoritado : AppCompatActivity() {
     private fun init() {
         viewPager2 = findViewById(R.id.viewPager)
         handler = Handler(Looper.myLooper()!!)
-        imageList = ArrayList()
 
         imageList.add(R.drawable.nivel_basico)
         imageList.add(R.drawable.nivel_intermediario)
         imageList.add(R.drawable.nivel_avancado)
 
-        adapter = ImageAdapter(imageList, viewPager2)
+//        adapter = ImageAdapter(imageList, viewPager2)
 
         viewPager2.adapter = adapter
         viewPager2.offscreenPageLimit = 4

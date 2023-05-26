@@ -4,10 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.linusapp.utils.Api
+import com.example.linusapp.vo.ContentVO
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.abs
 
 class ActivityConteudoPorNivel : AppCompatActivity() {
@@ -20,9 +29,9 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
     private lateinit var handlerIntermediario: Handler
     private lateinit var handlerAvancado: Handler
 
-    private lateinit var imageListBasico: ArrayList<Int>
-    private lateinit var imageListIntermediario: ArrayList<Int>
-    private lateinit var imageListAvancado: ArrayList<Int>
+    private lateinit var imageListBasico: ArrayList<ContentVO>
+    private lateinit var imageListIntermediario: ArrayList<ContentVO>
+    private lateinit var imageListAvancado: ArrayList<ContentVO>
 
     private lateinit var adapter: ImageAdapter
 
@@ -119,57 +128,75 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
     private fun initBasico() {
         viewPagerBasico = findViewById(R.id.viewPagerBasico)
         handlerBasico = Handler(Looper.myLooper()!!)
-        imageListBasico = ArrayList()
-
-        imageListBasico.add(R.drawable.nivel_basico)
-        imageListBasico.add(R.drawable.nivel_basico)
-        imageListBasico.add(R.drawable.nivel_basico)
-
-        adapter = ImageAdapter(imageListBasico, viewPagerBasico)
-
-        viewPagerBasico.adapter = adapter
-        viewPagerBasico.offscreenPageLimit = 4
-        viewPagerBasico.clipToPadding = false
-        viewPagerBasico.clipChildren = false
-        viewPagerBasico.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
+        val service = Api.getContentApi()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getContentByLevel(1)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
+                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    adapter = ImageAdapter(contentList, viewPagerBasico)
+                    viewPagerBasico.adapter = adapter
+                    viewPagerBasico.offscreenPageLimit = 4
+                    viewPagerBasico.clipToPadding = false
+                    viewPagerBasico.clipChildren = false
+                    viewPagerBasico.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                } else {
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 
     private fun initIntermediario() {
         viewPagerIntermediario = findViewById(R.id.viewPagerIntermediario)
         handlerIntermediario = Handler(Looper.myLooper()!!)
-        imageListIntermediario = ArrayList()
-
-        imageListIntermediario.add(R.drawable.nivel_intermediario)
-        imageListIntermediario.add(R.drawable.nivel_intermediario)
-        imageListIntermediario.add(R.drawable.nivel_intermediario)
-
-        adapter = ImageAdapter(imageListIntermediario, viewPagerIntermediario)
-
-        viewPagerIntermediario.adapter = adapter
-        viewPagerIntermediario.offscreenPageLimit = 4
-        viewPagerIntermediario.clipToPadding = false
-        viewPagerIntermediario.clipChildren = false
-        viewPagerIntermediario.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
+        val service = Api.getContentApi()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getContentByLevel(2)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
+                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    adapter = ImageAdapter(contentList, viewPagerIntermediario)
+                    viewPagerIntermediario.adapter = adapter
+                    viewPagerIntermediario.offscreenPageLimit = 4
+                    viewPagerIntermediario.clipToPadding = false
+                    viewPagerIntermediario.clipChildren = false
+                    viewPagerIntermediario.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                } else {
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 
     private fun initAvancado() {
         viewPagerAvancado = findViewById(R.id.viewPagerAvancado)
         handlerAvancado = Handler(Looper.myLooper()!!)
-        imageListAvancado = ArrayList()
-
-        imageListAvancado.add(R.drawable.nivel_avancado)
-        imageListAvancado.add(R.drawable.nivel_avancado)
-        imageListAvancado.add(R.drawable.nivel_avancado)
-
-        adapter = ImageAdapter(imageListAvancado, viewPagerAvancado)
-
-        viewPagerAvancado.adapter = adapter
-        viewPagerAvancado.offscreenPageLimit = 4
-        viewPagerAvancado.clipToPadding = false
-        viewPagerAvancado.clipChildren = false
-        viewPagerAvancado.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
+        val service = Api.getContentApi()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getContentByLevel(3)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
+                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    adapter = ImageAdapter(contentList, viewPagerAvancado)
+                    viewPagerAvancado.adapter = adapter
+                    viewPagerAvancado.offscreenPageLimit = 4
+                    viewPagerAvancado.clipToPadding = false
+                    viewPagerAvancado.clipChildren = false
+                    viewPagerAvancado.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                } else {
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
     }
 }

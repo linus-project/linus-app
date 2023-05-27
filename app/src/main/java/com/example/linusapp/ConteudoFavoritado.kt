@@ -4,31 +4,62 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonParser
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.math.abs
 
 class ConteudoFavoritado : AppCompatActivity() {
 
-    private lateinit var viewPager2: ViewPager2
-    private lateinit var handler : Handler
+    private lateinit var viewPagerBasico: ViewPager2
+    private lateinit var viewPagerIntermediario: ViewPager2
+    private lateinit var viewPagerAvancado: ViewPager2
+    private lateinit var handlerBasico: Handler
+    private lateinit var handlerIntermediario: Handler
+    private lateinit var handlerAvancado: Handler
     private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ImageAdapter
+    private var idUser: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conteudo_favoritado)
 
-        init()
-        setUpTransformer()
+        initBasico()
+        initIntermediario()
+        initAvancado()
+        setUpTransformerBasico()
+        setUpTransformerIntermediario()
+        setUpTransformerAvancado()
 
-        viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+        viewPagerBasico.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                handler.removeCallbacks(runnable)
+                handlerBasico.removeCallbacks(runnableBasico)
+            }
+        })
+
+        viewPagerIntermediario.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                handlerIntermediario.removeCallbacks(runnableIntermediario)
+            }
+        })
+
+        viewPagerAvancado.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                super.onPageSelected(position)
+                handlerAvancado.removeCallbacks(runnableAvancado)
             }
         })
     }
@@ -36,20 +67,103 @@ class ConteudoFavoritado : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
 
-        handler.removeCallbacks(runnable)
+        handlerBasico.removeCallbacks(runnableBasico)
     }
 
     override fun onResume() {
         super.onResume()
 
-        handler.postDelayed(runnable, 2000)
+        handlerBasico.postDelayed(runnableBasico, 2000)
     }
 
-    private val runnable = Runnable {
-        viewPager2.currentItem = viewPager2.currentItem + 1
+    private val runnableBasico = Runnable {
+        viewPagerBasico.currentItem = viewPagerBasico.currentItem + 1
     }
 
-    private fun setUpTransformer() {
+    private val runnableIntermediario = Runnable {
+        viewPagerIntermediario.currentItem = viewPagerIntermediario.currentItem + 1
+    }
+
+    private val runnableAvancado = Runnable {
+        viewPagerAvancado.currentItem = viewPagerAvancado.currentItem + 1
+    }
+
+    private fun initBasico() {
+        viewPagerBasico = findViewById(R.id.vpFavoritadoBasico)
+        handlerBasico = Handler(Looper.myLooper()!!)
+        val service = Api.getContentApi()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getFavoriteContentByLevel(idUser,1)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
+                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    adapter = ImageAdapter(contentList, viewPagerBasico)
+                    viewPagerBasico.adapter = adapter
+                    viewPagerBasico.offscreenPageLimit = 4
+                    viewPagerBasico.clipToPadding = false
+                    viewPagerBasico.clipChildren = false
+                    viewPagerBasico.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                } else {
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun initIntermediario() {
+        viewPagerIntermediario = findViewById(R.id.vpFavoritadoIntermediario)
+        handlerIntermediario = Handler(Looper.myLooper()!!)
+        val service = Api.getContentApi()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getFavoriteContentByLevel(idUser,2)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
+                    contentList.forEach { it.image = R.drawable.nivel_intermediario }
+                    adapter = ImageAdapter(contentList, viewPagerIntermediario)
+                    viewPagerIntermediario.adapter = adapter
+                    viewPagerIntermediario.offscreenPageLimit = 4
+                    viewPagerIntermediario.clipToPadding = false
+                    viewPagerIntermediario.clipChildren = false
+                    viewPagerIntermediario.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                } else {
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun initAvancado() {
+        viewPagerAvancado = findViewById(R.id.vpFavoritadoAvancado)
+        handlerAvancado = Handler(Looper.myLooper()!!)
+        val service = Api.getContentApi()
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = service.getFavoriteContentByLevel(idUser,3)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful) {
+                    val gson = GsonBuilder().setPrettyPrinting().create()
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
+                    contentList.forEach { it.image = R.drawable.nivel_avancado }
+                    adapter = ImageAdapter(contentList, viewPagerAvancado)
+                    viewPagerAvancado.adapter = adapter
+                    viewPagerAvancado.offscreenPageLimit = 4
+                    viewPagerAvancado.clipToPadding = false
+                    viewPagerAvancado.clipChildren = false
+                    viewPagerAvancado.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                } else {
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    private fun setUpTransformerBasico() {
         val transformer = CompositePageTransformer()
         transformer.addTransformer(MarginPageTransformer(40))
         transformer.addTransformer { page, position ->
@@ -57,24 +171,27 @@ class ConteudoFavoritado : AppCompatActivity() {
             page.scaleY = 0.85f + r * 0.14f
         }
 
-        viewPager2.setPageTransformer(transformer)
+        viewPagerBasico.setPageTransformer(transformer)
     }
 
-    private fun init() {
-        viewPager2 = findViewById(R.id.viewPager)
-        handler = Handler(Looper.myLooper()!!)
+    private fun setUpTransformerIntermediario() {
+        val transformer = CompositePageTransformer()
+        transformer.addTransformer(MarginPageTransformer(40))
+        transformer.addTransformer { page, position ->
+            val r = 1 - abs(position)
+            page.scaleY = 0.85f + r * 0.14f
+        }
+        viewPagerIntermediario.setPageTransformer(transformer)
+    }
 
-        imageList.add(R.drawable.nivel_basico)
-        imageList.add(R.drawable.nivel_intermediario)
-        imageList.add(R.drawable.nivel_avancado)
+    private fun setUpTransformerAvancado() {
+        val transformer = CompositePageTransformer()
+        transformer.addTransformer(MarginPageTransformer(40))
+        transformer.addTransformer { page, position ->
+            val r = 1 - abs(position)
+            page.scaleY = 0.85f + r * 0.14f
+        }
 
-//        adapter = ImageAdapter(imageList, viewPager2)
-
-        viewPager2.adapter = adapter
-        viewPager2.offscreenPageLimit = 4
-        viewPager2.clipToPadding = false
-        viewPager2.clipChildren = false
-        viewPager2.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-
+        viewPagerAvancado.setPageTransformer(transformer)
     }
 }

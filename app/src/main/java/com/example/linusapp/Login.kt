@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.TextView
 import com.example.linusapp.utils.Api
+import com.example.linusapp.vo.NewsVO
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -41,7 +42,6 @@ class Login : AppCompatActivity() {
                         JsonParser.parseString(response.body()?.string())
                     )
                     val activityContent = Intent(applicationContext, ActivityConteudoPorNivel::class.java)
-                    activityContent.putExtra("response", prettyJson)
                     startActivity(activityContent)
                 } else {
                     wrongPassword.visibility = View.VISIBLE

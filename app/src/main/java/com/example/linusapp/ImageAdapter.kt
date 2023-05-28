@@ -1,5 +1,6 @@
 package com.example.linusapp
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +18,13 @@ class ImageAdapter(private val imageList: MutableList<ContentVO>, private val vi
             itemView.findViewById<ImageView>(R.id.imageView).setImageResource(contentVO.image)
             itemView.findViewById<TextView>(R.id.title_content).text = contentVO.contentTitle
             itemView.findViewById<TextView>(R.id.content_card).text = contentVO.content
+            itemView.setOnClickListener{
+                val contentTextActivity = Intent(itemView!!.context, TelaConteudoTexto::class.java)
+                contentTextActivity.putExtra("idContent", contentVO.idContent)
+                itemView.context.startActivity(contentTextActivity)
+            }
         }
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.image_container, parent, false)

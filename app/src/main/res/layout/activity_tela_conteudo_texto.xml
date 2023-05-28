@@ -27,7 +27,7 @@
             <ImageView
                 android:layout_width="55dp"
                 android:layout_height="73dp"
-                android:layout_marginLeft="245dp"
+                android:layout_marginLeft="230dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:src="@mipmap/logo1" />
@@ -62,6 +62,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/content_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -102,6 +103,7 @@
                         android:src="@mipmap/parte1" />
 
                     <TextView
+                        android:id="@+id/content_text"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="15dp"
@@ -114,21 +116,22 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="25dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_horizontal">
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="275dp"
+                        android:layout_marginLeft="5dp"
+                        android:src="@mipmap/parte2" />
 
                     <TextView
+                        android:id="@+id/content_text_two"
                         android:layout_width="300dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/montserrat_light"
                         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat iaculis elit vel porta. Vestibulum consequat mollis hendrerit. Integer lacinia molestie felis, a elementum nisi ultrices non. Praesent sed quam ut justo tincidunt ullamcorper. Vivamus cursus, arcu eu pellentesque sollicitudin, nisl dolor fermentum ipsum, non suscipit risus nulla eu lectus. Sed a bibendum libero. Ut eleifend ac orci vitae varius. Nulla efficitur felis elit, sit amet varius mi placerat eu."
                         android:textColor="@color/white"
                         android:textSize="15sp" />
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="275dp"
-                        android:src="@mipmap/parte2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -138,6 +141,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="50dp"
+                        android:adjustViewBounds="true"
                         android:layout_marginLeft="20dp"
                         android:src="@mipmap/curtir" />
 

@@ -17,6 +17,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.math.BigDecimal
 import kotlin.math.abs
 
 class ConteudoFavoritado : AppCompatActivity() {
@@ -29,7 +30,7 @@ class ConteudoFavoritado : AppCompatActivity() {
     private lateinit var handlerAvancado: Handler
     private lateinit var imageList: ArrayList<Int>
     private lateinit var adapter: ImageAdapter
-    private var idUser: Long = 0
+    private var idUser: Long = intent.getLongExtra("idUser", 0)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

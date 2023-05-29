@@ -38,10 +38,11 @@
             android:layout_height="60dp">
 
             <ImageView
+                android:id="@+id/favorite_star"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
                 android:layout_marginLeft="20dp"
-                android:src="@mipmap/estrela_vazia" />
+                android:onClick="favoriteContent"/>
 
             <TextView
                 android:layout_width="wrap_content"

@@ -1,8 +1,11 @@
 package com.example.linusapp.dao
 
+import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -18,4 +21,13 @@ interface ContentApi {
         @Query("idUser") idUser: Long,
         @Query("level") idLevel: Long
     ): Response<ResponseBody>
+
+    @GET("/content/favorite")
+    suspend fun isFavorite(
+        @Query("idUser") idUser: Long,
+        @Query("idContent") idContent: Long
+    ): Response<ResponseBody>
+
+    @POST("/content/favorite")
+    suspend fun favoriteContent(@Body user: RequestBody) : Response<ResponseBody>
 }

@@ -21,6 +21,7 @@ class ImageAdapter(private val imageList: MutableList<ContentVO>, private val vi
             itemView.setOnClickListener{
                 val contentTextActivity = Intent(itemView!!.context, TelaConteudoTexto::class.java)
                 contentTextActivity.putExtra("idContent", contentVO.idContent)
+                contentTextActivity.putExtra("fkLevel", contentVO.fkLevel)
                 itemView.context.startActivity(contentTextActivity)
             }
         }

@@ -11,6 +11,7 @@ import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
+import com.example.linusapp.vo.UserVO
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -34,10 +35,26 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
     private lateinit var imageListAvancado: ArrayList<ContentVO>
 
     private lateinit var adapter: ImageAdapter
+    private lateinit var userVO: UserVO
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_conteudo_por_nivel)
+
+        userVO = UserVO(
+            intent.getLongExtra("idUser", 0),
+            intent.getStringExtra("name").toString(),
+            intent.getStringExtra("username").toString(),
+            intent.getStringExtra("email").toString(),
+            intent.getStringExtra("password").toString(),
+            intent.getStringExtra("genre").toString(),
+            intent.getStringExtra("bornDate").toString(),
+            intent.getStringExtra("phoneNumber").toString(),
+            intent.getStringExtra("adminKey").toString(),
+            intent.getStringExtra("imageCode").toString(),
+            intent.getLongExtra("fkLevel", 0),
+            intent.getIntExtra("isBlocked", 0)
+        )
 
         initBasico()
         initIntermediario()
@@ -137,7 +154,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
                     contentList.forEach { it.image = R.drawable.nivel_basico }
-                    adapter = ImageAdapter(contentList, viewPagerBasico)
+                    adapter = ImageAdapter(userVO, contentList, viewPagerBasico)
                     viewPagerBasico.adapter = adapter
                     viewPagerBasico.offscreenPageLimit = 4
                     viewPagerBasico.clipToPadding = false
@@ -162,7 +179,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
                     contentList.forEach { it.image = R.drawable.nivel_basico }
-                    adapter = ImageAdapter(contentList, viewPagerIntermediario)
+                    adapter = ImageAdapter(userVO, contentList, viewPagerIntermediario)
                     viewPagerIntermediario.adapter = adapter
                     viewPagerIntermediario.offscreenPageLimit = 4
                     viewPagerIntermediario.clipToPadding = false
@@ -187,7 +204,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
                     contentList.forEach { it.image = R.drawable.nivel_basico }
-                    adapter = ImageAdapter(contentList, viewPagerAvancado)
+                    adapter = ImageAdapter(userVO, contentList, viewPagerAvancado)
                     viewPagerAvancado.adapter = adapter
                     viewPagerAvancado.offscreenPageLimit = 4
                     viewPagerAvancado.clipToPadding = false

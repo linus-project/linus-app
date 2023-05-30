@@ -49,14 +49,14 @@ class TelaConteudoTexto : AppCompatActivity() {
                     findViewById<TextView>(R.id.content_text).text = content.content.subSequence(0,1004)
                     findViewById<TextView>(R.id.content_text_two).text = content.content.subSequence(1004,2000)
                     if (isFavorited) {
-                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_vazia)
-                        isFavorited = false
-                    } else {
                         findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_preenchida)
-                        isFavorited = true
+                    } else {
+                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_vazia)
                     }
                 } else {
                     Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                    findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + idContent +
+                            "\n idUser = " + idUser + "\n fkLevel = " + fkLevel
                 }
             }
         }
@@ -65,9 +65,9 @@ class TelaConteudoTexto : AppCompatActivity() {
      fun favoriteContent(component: View) {
         val service = Api.getContentApi()
         val jsonObject = JSONObject()
-        jsonObject.put("fkUser", 1)
-        jsonObject.put("fkContent", 1)
-        jsonObject.put("contentLevel", 1)
+        jsonObject.put("fkUser", idUser)
+        jsonObject.put("fkContent", idContent)
+        jsonObject.put("contentLevel", fkLevel)
         val jsonObjectString = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
         CoroutineScope(Dispatchers.IO).launch {
             val response = service.favoriteContent(jsonObjectString)
@@ -84,6 +84,8 @@ class TelaConteudoTexto : AppCompatActivity() {
                     }
                 } else {
                     Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                    findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + idContent +
+                            "\n idUser = " + idUser + "\n fkLevel = " + fkLevel
                 }
             }
         }

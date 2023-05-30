@@ -9,23 +9,30 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.linusapp.vo.ContentVO
+import com.example.linusapp.vo.UserVO
 
-class ImageAdapter(private val imageList: MutableList<ContentVO>, private val viewPager2: ViewPager2) :
+class ImageAdapter(
+    private val userVO: UserVO,
+    private val imageList: MutableList<ContentVO>,
+    private val viewPager2: ViewPager2
+) :
     RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
 
-    class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ImageViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(contentVO: ContentVO) {
             itemView.findViewById<ImageView>(R.id.imageView).setImageResource(contentVO.image)
             itemView.findViewById<TextView>(R.id.title_content).text = contentVO.contentTitle
             itemView.findViewById<TextView>(R.id.content_card).text = contentVO.content
-            itemView.setOnClickListener{
+            itemView.setOnClickListener {
                 val contentTextActivity = Intent(itemView!!.context, TelaConteudoTexto::class.java)
+                contentTextActivity.putExtra("idUser", userVO.idUser)
                 contentTextActivity.putExtra("idContent", contentVO.idContent)
                 contentTextActivity.putExtra("fkLevel", contentVO.fkLevel)
                 itemView.context.startActivity(contentTextActivity)
             }
         }
     }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
         val view =
             LayoutInflater.from(parent.context).inflate(R.layout.image_container, parent, false)

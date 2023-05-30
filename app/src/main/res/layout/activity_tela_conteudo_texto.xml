@@ -69,6 +69,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/montserrat_bold"
                 android:text="Conteúdo 1"
+                android:textAlignment="center"
                 android:textColor="@color/green_water"
                 android:textSize="40sp" />
 

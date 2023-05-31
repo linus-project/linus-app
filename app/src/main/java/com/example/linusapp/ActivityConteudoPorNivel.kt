@@ -178,7 +178,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    contentList.forEach { it.image = R.drawable.nivel_intermediario }
                     adapter = ImageAdapter(userVO, contentList, viewPagerIntermediario)
                     viewPagerIntermediario.adapter = adapter
                     viewPagerIntermediario.offscreenPageLimit = 4
@@ -203,7 +203,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    contentList.forEach { it.image = R.drawable.nivel_avancado }
                     adapter = ImageAdapter(userVO, contentList, viewPagerAvancado)
                     viewPagerAvancado.adapter = adapter
                     viewPagerAvancado.offscreenPageLimit = 4

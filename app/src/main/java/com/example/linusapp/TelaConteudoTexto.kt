@@ -78,7 +78,7 @@ class TelaConteudoTexto : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Conteúdo desfavoritado!", Toast.LENGTH_LONG).show()
                         isFavorited = false
                     } else {
-                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_preenchida)
+                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_preenchida_fav)
                         Toast.makeText(applicationContext, "Conteúdo favoritado!", Toast.LENGTH_LONG).show()
                         isFavorited = true
                     }

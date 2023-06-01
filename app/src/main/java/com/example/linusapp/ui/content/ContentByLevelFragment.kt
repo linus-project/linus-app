@@ -1,17 +1,26 @@
-package com.example.linusapp
+package com.example.linusapp.ui.content
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
+import com.example.linusapp.ImageAdapter
+import com.example.linusapp.PrincipalActivity
+import com.example.linusapp.R
+import com.example.linusapp.databinding.FragmentContentByLevelBinding
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
 import com.example.linusapp.vo.UserVO
+import com.google.android.material.navigation.NavigationView
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -20,7 +29,14 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.math.abs
 
-class ActivityConteudoPorNivel : AppCompatActivity() {
+class ContentByLevelFragment : Fragment() {
+
+    private var _binding: FragmentContentByLevelBinding? = null
+
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+    private lateinit var userVO: UserVO
 
     private lateinit var viewPagerBasico: ViewPager2
     private lateinit var viewPagerIntermediario: ViewPager2
@@ -31,25 +47,27 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
     private lateinit var handlerAvancado: Handler
 
     private lateinit var adapter: ImageAdapter
-    private lateinit var userVO: UserVO
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_content_by_level)
-
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentContentByLevelBinding.inflate(inflater, container, false)
+        val root: View = binding.root
         userVO = UserVO(
-            intent.getLongExtra("idUser", 0),
-            intent.getStringExtra("name").toString(),
-            intent.getStringExtra("username").toString(),
-            intent.getStringExtra("email").toString(),
-            intent.getStringExtra("password").toString(),
-            intent.getStringExtra("genre").toString(),
-            intent.getStringExtra("bornDate").toString(),
-            intent.getStringExtra("phoneNumber").toString(),
-            intent.getStringExtra("adminKey").toString(),
-            intent.getStringExtra("imageCode").toString(),
-            intent.getLongExtra("fkLevel", 0),
-            intent.getIntExtra("isBlocked", 0)
+            parentFragment?.activity?.intent!!.getLongExtra("idUser", 0),
+            parentFragment?.activity?.intent!!.getStringExtra("name").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("username").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("email").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("password").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("genre").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("bornDate").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("phoneNumber").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("adminKey").toString(),
+            parentFragment?.activity?.intent!!.getStringExtra("imageCode").toString(),
+            parentFragment?.activity?.intent!!.getLongExtra("fkLevel", 0),
+            parentFragment?.activity?.intent!!.getIntExtra("isBlocked", 0)
         )
 
         initBasico()
@@ -79,19 +97,13 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                 handlerAvancado.removeCallbacks(runnableAvancado)
             }
         })
+        return root
     }
 
-    override fun onPause() {
-        super.onPause()
-        handlerBasico.removeCallbacks(runnableBasico)
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
-
-    override fun onResume() {
-        super.onResume()
-
-        handlerBasico.postDelayed(runnableBasico, 2000)
-    }
-
 
     private val runnableBasico = Runnable {
         viewPagerBasico.currentItem = viewPagerBasico.currentItem + 1
@@ -139,7 +151,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
     }
 
     private fun initBasico() {
-        viewPagerBasico = findViewById(R.id.viewPagerBasico)
+        viewPagerBasico = binding.viewPagerBasico
         handlerBasico = Handler(Looper.myLooper()!!)
         val service = Api.getContentApi()
         CoroutineScope(Dispatchers.IO).launch {
@@ -157,14 +169,14 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     viewPagerBasico.clipChildren = false
                     viewPagerBasico.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
                 } else {
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
 
     private fun initIntermediario() {
-        viewPagerIntermediario = findViewById(R.id.viewPagerIntermediario)
+        viewPagerIntermediario = binding.viewPagerIntermediario
         handlerIntermediario = Handler(Looper.myLooper()!!)
         val service = Api.getContentApi()
         CoroutineScope(Dispatchers.IO).launch {
@@ -182,14 +194,14 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     viewPagerIntermediario.clipChildren = false
                     viewPagerIntermediario.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
                 } else {
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
                 }
             }
         }
     }
 
     private fun initAvancado() {
-        viewPagerAvancado = findViewById(R.id.viewPagerAvancado)
+        viewPagerAvancado = binding.viewPagerAvancado
         handlerAvancado = Handler(Looper.myLooper()!!)
         val service = Api.getContentApi()
         CoroutineScope(Dispatchers.IO).launch {
@@ -207,7 +219,7 @@ class ActivityConteudoPorNivel : AppCompatActivity() {
                     viewPagerAvancado.clipChildren = false
                     viewPagerAvancado.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
                 } else {
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
                 }
             }
         }

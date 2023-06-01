@@ -3,22 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
-
-    <activity
-        android:id="@+id/nav_conteudo_por_nivel"
-        android:name="com.example.linusapp.ActivityConteudoPorNivel"
-        android:label="Conteúdo por Nível"
-        tools:layout="@layout/fragment_gallery"
-        >
-
-    </activity>
+    app:startDestination="@+id/nav_content_by_level">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.linusapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_content_by_level"
+        android:name="com.example.linusapp.ui.content.ContentByLevelFragment"
+        android:label="Conteúdo por Nível"
+        tools:layout="@layout/fragment_content_by_level" />
 
     <fragment
         android:id="@+id/nav_gallery"

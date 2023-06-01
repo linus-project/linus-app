@@ -42,7 +42,7 @@ class Login : AppCompatActivity() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val userResponse: UserVO = gson.fromJson(prettyJson, UserVO::class.java)
-                    val activityContent = Intent(applicationContext, ActivityConteudoPorNivel::class.java)
+                    val activityContent = Intent(applicationContext, PrincipalActivity::class.java)
                     activityContent.putExtra("idUser", userResponse.idUser)
                     activityContent.putExtra("name", userResponse.name)
                     activityContent.putExtra("username", userResponse.username)

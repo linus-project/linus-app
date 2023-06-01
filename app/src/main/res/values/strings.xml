@@ -20,7 +20,7 @@
     <string name="txt_distribuicao">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequunt.</string>
     <string name="title_distribuicao">Ubuntu</string>
     <string name="txt_iniciante">Recomendado para Iniciante</string>
-    <string name="menu_home">Home</string>
+    <string name="menu_content_by_level">Conteúdo</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="title_activity_menu_hamburger">MenuHamburger</string>

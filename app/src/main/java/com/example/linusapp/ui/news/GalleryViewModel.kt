@@ -1,4 +1,4 @@
-package com.example.linusapp.ui.gallery
+package com.example.linusapp.ui.news
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

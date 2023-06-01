@@ -18,7 +18,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import java.math.BigDecimal
 import kotlin.math.abs
 
 class ConteudoFavoritado : AppCompatActivity() {
@@ -142,7 +141,7 @@ class ConteudoFavoritado : AppCompatActivity() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_intermediario }
+                    contentList.forEach { it.image = R.drawable.nivel_avancado }
                     adapter = ImageAdapter(userVO, contentList, viewPagerIntermediario)
                     viewPagerIntermediario.adapter = adapter
                     viewPagerIntermediario.offscreenPageLimit = 4
@@ -167,7 +166,7 @@ class ConteudoFavoritado : AppCompatActivity() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_avancado }
+                    contentList.forEach { it.image = R.drawable.nivel_intermediario }
                     adapter = ImageAdapter(userVO, contentList, viewPagerAvancado)
                     viewPagerAvancado.adapter = adapter
                     viewPagerAvancado.offscreenPageLimit = 4

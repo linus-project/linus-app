@@ -5,27 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_content_by_level"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_content_by_level" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
-        <item
             android:id="@+id/nav_seu_perfil"
             android:icon="@mipmap/user2"
             android:title="Seu Perfil"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
-            android:id="@+id/nav_distribuicoes"
+            android:id="@+id/nav_content_by_level"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="@string/menu_content_by_level" />
+        <item
+            android:id="@+id/nav_distro"
             android:icon="@mipmap/world"
-            android:title="Test"
+            android:title="Distribuições"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item

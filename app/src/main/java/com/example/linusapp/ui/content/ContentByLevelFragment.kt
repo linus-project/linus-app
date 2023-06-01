@@ -6,7 +6,6 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -14,13 +13,11 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.linusapp.ImageAdapter
-import com.example.linusapp.PrincipalActivity
 import com.example.linusapp.R
 import com.example.linusapp.databinding.FragmentContentByLevelBinding
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
 import com.example.linusapp.vo.UserVO
-import com.google.android.material.navigation.NavigationView
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope

@@ -1,4 +1,4 @@
-package com.example.linusapp.ui.gallery
+package com.example.linusapp.ui.news
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.linusapp.databinding.FragmentGalleryBinding
 
-class GalleryFragment : Fragment() {
+class NewsFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
 

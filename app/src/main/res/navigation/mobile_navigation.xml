@@ -12,8 +12,14 @@
         tools:layout="@layout/fragment_content_by_level" />
 
     <fragment
+        android:id="@+id/nav_distro"
+        android:name="com.example.linusapp.ui.distro.DistroFragment"
+        android:label="Distribuições"
+        tools:layout="@layout/fragment_distro" />
+
+    <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.linusapp.ui.gallery.GalleryFragment"
+        android:name="com.example.linusapp.ui.news.NewsFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 

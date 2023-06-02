@@ -12,8 +12,10 @@
             android:textColor="@color/bg_white"/>
         <item
             android:id="@+id/nav_content_by_level"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_content_by_level" />
+            android:icon="@mipmap/world"
+            android:fontFamily="@font/montserrat_medium"
+            android:textColor="@color/bg_white"
+            android:title="Conteúdo por nível" />
         <item
             android:id="@+id/nav_distro"
             android:icon="@mipmap/world"
@@ -33,7 +35,7 @@
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
-            android:id="@+id/nav_noticias"
+            android:id="@+id/nav_news"
             android:icon="@mipmap/license"
             android:title="Notícias"
             android:fontFamily="@font/montserrat_medium"

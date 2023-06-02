@@ -18,10 +18,10 @@
         tools:layout="@layout/fragment_distro" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_news"
         android:name="com.example.linusapp.ui.news.NewsFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:label="Notícias"
+        tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/nav_slideshow"

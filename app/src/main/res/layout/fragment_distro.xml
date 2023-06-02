@@ -5,8 +5,7 @@
     style="@style/bg_color_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityConteudoPorNivel">
-
+    tools:context=".ui.distro.DistroFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

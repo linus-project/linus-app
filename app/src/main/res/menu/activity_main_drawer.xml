@@ -6,37 +6,37 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_seu_perfil"
-            android:icon="@mipmap/user2"
+            android:icon="@drawable/user"
             android:title="Seu Perfil"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
             android:id="@+id/nav_content_by_level"
-            android:icon="@mipmap/world"
+            android:icon="@drawable/content"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"
-            android:title="Conteúdo por nível" />
+            android:title="Conteúdo" />
         <item
             android:id="@+id/nav_distro"
-            android:icon="@mipmap/world"
+            android:icon="@drawable/distro"
             android:title="Distribuições"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
             android:id="@+id/nav_visto_por_ultimo"
-            android:icon="@mipmap/eyecheck"
+            android:icon="@drawable/history"
             android:title="Visto Por Último"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
             android:id="@+id/nav_favoritos"
-            android:icon="@mipmap/vector"
+            android:icon="@drawable/star"
             android:title="Favoritos"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
             android:id="@+id/nav_news"
-            android:icon="@mipmap/license"
+            android:icon="@drawable/news"
             android:title="Notícias"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>

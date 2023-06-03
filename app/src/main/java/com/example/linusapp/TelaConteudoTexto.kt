@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
+import com.example.linusapp.vo.UserVO
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -21,42 +22,61 @@ import org.json.JSONObject
 
 class TelaConteudoTexto : AppCompatActivity() {
 
-    var idContent: Long = 0
-    var idUser: Long = 0
-    var fkLevel: Long = 0
+    private lateinit var userVO: UserVO
+    private lateinit var contentVO: ContentVO
     var isFavorited = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        idContent = intent.getLongExtra("idContent", 0)
-        idUser = intent.getLongExtra("idUser", 0)
-        fkLevel = intent.getLongExtra("fkLevel", 0)
-        super.onCreate(savedInstanceState)
+        userVO = UserVO(
+            intent.getLongExtra("idUser", 0),
+            intent.getStringExtra("name").toString(),
+            intent.getStringExtra("username").toString(),
+            intent.getStringExtra("email").toString(),
+            intent.getStringExtra("password").toString(),
+            intent.getStringExtra("genre").toString(),
+            intent.getStringExtra("bornDate").toString(),
+            intent.getStringExtra("phoneNumber").toString(),
+            intent.getStringExtra("adminKey").toString(),
+            intent.getStringExtra("imageCode").toString(),
+            intent.getLongExtra("fkLevel", 0),
+            intent.getIntExtra("isBlocked", 0)
+        )
+        contentVO = ContentVO(
+            intent.getLongExtra("idContent", 0),
+            "",
+            "",
+            intent.getLongExtra("idUser", 0),
+            intent.getIntExtra("fkLevel", 0),
+            0,
+        )
         isFavorite()
         getContent()
         setContentView(R.layout.activity_tela_conteudo_texto)
+        super.onCreate(savedInstanceState)
     }
 
     fun getContent(){
         val service = Api.getContentApi()
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.getContent(idContent)
+            val response = service.getContent(contentVO.idContent)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
-                    val content: ContentVO = gson.fromJson(prettyJson, ContentVO::class.java)
-                    findViewById<TextView>(R.id.content_title).text = content.contentTitle
-                    findViewById<TextView>(R.id.content_text).text = content.content.subSequence(0,1004)
-                    findViewById<TextView>(R.id.content_text_two).text = content.content.subSequence(1004,2000)
+                    contentVO = gson.fromJson(prettyJson, ContentVO::class.java)
+                    findViewById<TextView>(R.id.content_title).text = contentVO.contentTitle
+                    findViewById<TextView>(R.id.content_text).text = contentVO.content.subSequence(0,1004)
+                    findViewById<TextView>(R.id.content_text_two).text = contentVO.content.subSequence(1004,2000)
                     if (isFavorited) {
-                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_preenchida)
+                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.drawable.star_filled )
                     } else {
-                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_vazia)
+                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.drawable.star)
                     }
+                    saveHistoryContent()
                 } else {
                     Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
-                    findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + idContent +
-                            "\n idUser = " + idUser + "\n fkLevel = " + fkLevel
+                    findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + contentVO.idContent +
+                            "\n idUser = " + userVO.idUser + "\n fkLevel = " + contentVO.fkLevel
                 }
             }
         }
@@ -65,27 +85,25 @@ class TelaConteudoTexto : AppCompatActivity() {
      fun favoriteContent(component: View) {
         val service = Api.getContentApi()
         val jsonObject = JSONObject()
-        jsonObject.put("fkUser", idUser)
-        jsonObject.put("fkContent", idContent)
-        jsonObject.put("contentLevel", fkLevel)
+        jsonObject.put("fkUser", userVO.idUser)
+        jsonObject.put("fkContent", contentVO.idContent)
+        jsonObject.put("contentLevel", contentVO.fkLevel)
         val jsonObjectString = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
         CoroutineScope(Dispatchers.IO).launch {
             val response = service.favoriteContent(jsonObjectString)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     if (isFavorited) {
-                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_vazia)
-                        Toast.makeText(applicationContext, "Conteúdo desfavoritado!", Toast.LENGTH_LONG).show()
+                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.drawable.star)
                         isFavorited = false
                     } else {
-                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.mipmap.estrela_preenchida_fav)
-                        Toast.makeText(applicationContext, "Conteúdo favoritado!", Toast.LENGTH_LONG).show()
+                        findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.drawable.star_filled)
                         isFavorited = true
                     }
                 } else {
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
-                    findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + idContent +
-                            "\n idUser = " + idUser + "\n fkLevel = " + fkLevel
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+                    findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + contentVO.idContent +
+                            "\n idUser = " + userVO.idUser + "\n fkLevel = " + contentVO.fkLevel
                 }
             }
         }
@@ -97,18 +115,29 @@ class TelaConteudoTexto : AppCompatActivity() {
         jsonObject.put("fkUser", 1)
         jsonObject.put("fkContent", 1)
         jsonObject.put("contentLevel", 1)
-        val jsonObjectString = jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull())
         CoroutineScope(Dispatchers.IO).launch {
-            val response = service.isFavorite(idUser, idContent)
+            val response = service.isFavorite(userVO.idUser, contentVO.idContent)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     isFavorited = gson.fromJson(prettyJson, Boolean::class.java)
                 } else {
-                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
+                    Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+
+    fun saveHistoryContent() {
+        val service = Api.getContentApi()
+        val jsonObject = JSONObject()
+        jsonObject.put("fkUser", userVO.idUser)
+        jsonObject.put("fkContent", contentVO.idContent)
+        jsonObject.put("contentLevel", contentVO.fkLevel)
+        CoroutineScope(Dispatchers.IO).launch {
+            service.saveHistoryContent(jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull()))
+            withContext(Dispatchers.Main) {}
         }
     }
 }

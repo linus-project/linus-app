@@ -30,4 +30,7 @@ interface ContentApi {
 
     @POST("/content/favorite")
     suspend fun favoriteContent(@Body user: RequestBody) : Response<ResponseBody>
+
+    @POST("/content/history")
+    suspend fun saveHistoryContent(@Body user: RequestBody) : Response<ResponseBody>
 }

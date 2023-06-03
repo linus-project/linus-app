@@ -8,8 +8,14 @@
     <fragment
         android:id="@+id/nav_content_by_level"
         android:name="com.example.linusapp.ui.content.ContentByLevelFragment"
-        android:label="Conteúdo por Nível"
+        android:label="Conteúdo"
         tools:layout="@layout/fragment_content_by_level" />
+
+    <activity
+        android:id="@+id/nav_content"
+        android:name="com.example.linusapp.TelaConteudoTexto"
+        android:label="Conteúdo"
+        tools:layout="@layout/activity_tela_conteudo_texto" />
 
     <fragment
         android:id="@+id/nav_distro"

@@ -29,8 +29,11 @@ interface ContentApi {
     ): Response<ResponseBody>
 
     @POST("/content/favorite")
-    suspend fun favoriteContent(@Body user: RequestBody) : Response<ResponseBody>
+    suspend fun favoriteContent(@Body user: RequestBody): Response<ResponseBody>
 
     @POST("/content/history")
-    suspend fun saveHistoryContent(@Body user: RequestBody) : Response<ResponseBody>
+    suspend fun saveHistoryContent(@Body user: RequestBody): Response<ResponseBody>
+
+    @GET("/content/history")
+    suspend fun getHistoryContent(@Query("idUser") idUser: Long): Response<ResponseBody>
 }

@@ -11,6 +11,18 @@
         android:label="Conteúdo"
         tools:layout="@layout/fragment_content_by_level" />
 
+    <fragment
+        android:id="@+id/nav_favorite_content"
+        android:name="com.example.linusapp.ui.content.FavoriteContentFragment"
+        android:label="Favoritos"
+        tools:layout="@layout/fragment_favorite_content" />
+
+    <fragment
+        android:id="@+id/nav_history_content"
+        android:name="com.example.linusapp.ui.content.HistoryContentFragment"
+        android:label="Visto por último"
+        tools:layout="@layout/fragment_content_by_level" />
+
     <activity
         android:id="@+id/nav_content"
         android:name="com.example.linusapp.TelaConteudoTexto"
@@ -30,8 +42,8 @@
         tools:layout="@layout/fragment_news" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.linusapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_user_profile"
+        android:name="com.example.linusapp.ui.user.UserProfileFragment"
+        android:label="Seu Perfil"
+        tools:layout="@layout/fragment_user_profile" />
 </navigation>

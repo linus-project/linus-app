@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_seu_perfil"
+            android:id="@+id/nav_user_profile"
             android:icon="@drawable/user"
             android:title="Seu Perfil"
             android:fontFamily="@font/montserrat_medium"
@@ -23,13 +23,13 @@
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
-            android:id="@+id/nav_visto_por_ultimo"
+            android:id="@+id/nav_history_content"
             android:icon="@drawable/history"
             android:title="Visto Por Último"
             android:fontFamily="@font/montserrat_medium"
             android:textColor="@color/bg_white"/>
         <item
-            android:id="@+id/nav_favoritos"
+            android:id="@+id/nav_favorite_content"
             android:icon="@drawable/star"
             android:title="Favoritos"
             android:fontFamily="@font/montserrat_medium"

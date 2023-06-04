@@ -18,6 +18,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".TermoDeUso"
+            android:exported="false" />
+        <activity
             android:name=".TelaConteudoTexto"
             android:exported="true">
             <meta-data
@@ -28,8 +31,7 @@
             android:name=".PrincipalActivity"
             android:exported="true"
             android:label="@string/title_activity_principal"
-            android:theme="@style/Theme.LinusApp.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.LinusApp.NoActionBar"></activity>
         <activity
             android:name=".Onboarding"
             android:exported="true" />

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import com.example.linusapp.databinding.ActivityCadastroBinding
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.UserVO
 import com.google.gson.GsonBuilder
@@ -19,9 +20,14 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 
 class Cadastro : AppCompatActivity() {
+
+    private lateinit var binding: ActivityCadastroBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
+
+        termoUso()
     }
 
     fun register(component: View) {
@@ -64,5 +70,14 @@ class Cadastro : AppCompatActivity() {
         jsonObject.put("password", findViewById<EditText>(R.id.password_register).text.toString())
         jsonObject.put("fkLevel", 1)
         return jsonObject
+    }
+
+    fun termoUso(){
+        binding = ActivityCadastroBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.checkBox.setOnClickListener{
+            val navegarSegunda = Intent(this, TermoDeUso::class.java)
+            startActivity(navegarSegunda)
+        }
     }
 }

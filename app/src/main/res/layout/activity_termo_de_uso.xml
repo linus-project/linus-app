@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/bg_color_app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TermoDeUso">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_height="73dp"
+                android:src="@mipmap/logo1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:fontFamily="@font/montserrat_semibold"
+                android:text="TERMOS DE USO"
+                android:textColor="@color/green_water"
+                android:textSize="40sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montserrat_light"
+                android:text="Este termo de uso estabelece as condições para utilização do aplicativo Linus, desenvolvido e mantido pela nossa empresa.Ao utilizar o Aplicativo, você concorda integralmente com os termos e condições estabelecidos neste documento. \n\n1. Licença de Uso \n
+    1.1. A nossa empresa concede ao usuário uma licença de uso não exclusiva, intransferível e limitada para utilizar o Aplicativo em um único computador que execute o sistema operacional Linux. \n\n1.2. O usuário não pode:\n
+      - Copiar, modificar, adaptar, traduzir, criar obras derivadas, fazer engenharia reversa, descompilar, desmontar ou tentar extrair o código-fonte do Aplicativo;\n
+      - Alugar, arrendar, emprestar, vender, ceder, distribuir ou transferir, de qualquer forma, o Aplicativo ou a sua licença de uso para terceiros. \n \n 1.3. A nossa empresa se reserva o direito de descontinuar o Aplicativo, a qualquer momento, sem aviso prévio. \n\n
+2. Propriedade Intelectual\n
+      2.1. O Aplicativo é protegido pelas leis de propriedade intelectual aplicáveis e pertence exclusivamente à nossa empresa.\n
+      2.2. O usuário reconhece que não adquire qualquer direito de propriedade sobre o Aplicativo, bem como sobre suas marcas, nomes comerciais, logomarcas e quaisquer outros direitos de propriedade intelectual relacionados ao Aplicativo.\n\n
+3. Garantia e Responsabilidade\n
+      3.1. O Aplicativo é fornecido 'no estado em que se encontra' e sem garantias de qualquer natureza, sejam expressas ou implícitas.\n
+      3.2. A nossa empresa não se responsabiliza por quaisquer danos diretos, indiretos, incidentais, especiais, consequenciais ou punitivos, incluindo, mas não se limitando a, perda de lucros, perda de dados, interrupção de negócios ou qualquer outro dano ou perda decorrente do uso ou incapacidade de uso do Aplicativo, ainda que tenha sido informada sobre a possibilidade de tais danos.
+4. Disposições Gerais\n
+      4.1. Este Termo é regido pelas leis brasileiras e qualquer controvérsia decorrente do uso do Aplicativo será resolvida pelos tribunais brasileiros.\n
+      4.2. Se qualquer disposição deste Termo for considerada inválida ou inexequível, as demais disposições permanecerão em pleno vigor e efeito.\n
+      4.3. Este Termo constitui o acordo integral entre as partes e substitui todos os acordos anteriores ou contemporâneos, escritos ou verbais, referentes ao Aplicativo.\n\n
+Ao utilizar o Aplicativo, você confirma que leu e concorda com os termos e condições estabelecidos neste Termo."
+                android:textColor="@color/white"
+                android:textSize="10sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/botaoAceite"
+                android:layout_width="125dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/botao_verde_arredondado"
+                android:fontFamily="@font/montserrat_semibold"
+                android:onClick="termoAceito"
+                android:text="ACEITO"
+                android:textColor="@color/white"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

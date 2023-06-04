@@ -2,88 +2,112 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/bg_color_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Onboarding">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/bg_dark_gray">
+        android:gravity="center"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
                 android:layout_width="200dp"
                 android:layout_height="150dp"
-                android:src="@mipmap/logo1"
                 android:backgroundTint="#000000"
-                android:layout_gravity="center"
-                android:layout_marginTop="130sp"/>
+                android:src="@mipmap/logo1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_semibold"
-                android:textSize="40sp"
                 android:text="@string/ola"
                 android:textColor="@color/purple"
-                android:layout_gravity="center"/>
+                android:textSize="40sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:textSize="20sp"
-                android:textAlignment="center"
+                android:gravity="center"
+                android:layout_marginTop="40dp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/intro1"
+                android:textAlignment="center"
                 android:textColor="@color/bg_white"
-                android:layout_gravity="center"/>
+                android:textSize="20sp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_marginTop="20dp"
-                android:textSize="20sp"
                 android:fontFamily="@font/montserrat_medium"
                 android:text="@string/intro2"
                 android:textColor="@color/bg_white"
-                android:layout_gravity="center"/>
+                android:textSize="20sp" />
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:clipChildren="false"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button1"
-                android:layout_width="190dp"
-                android:layout_height="50dp"
-                android:background="@drawable/botao_roxo_arredondado"
-                android:fontFamily="@font/montserrat_semibold"
-                android:onClick="redirectToRegister"
-                android:text="@string/cadastrar"
-                android:textAlignment="textStart"
-                android:textColor="@color/white"
-                android:paddingLeft="25dp"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipChildren="false"
+                android:gravity="center">
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button2"
-                android:layout_width="160dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="160dp"
-                android:background="@drawable/botao_verde_arredondado"
-                android:fontFamily="@font/montserrat_semibold"
-                android:onClick="redirectToLogin"
-                android:text="@string/login"
-                android:textColor="@color/white" />
-        </RelativeLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button1"
+                    android:layout_width="190dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/botao_roxo_arredondado"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:onClick="redirectToRegister"
+                    android:paddingLeft="25dp"
+                    android:text="@string/cadastrar"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/button2"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="160dp"
+                    android:background="@drawable/botao_verde_arredondado"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:onClick="redirectToLogin"
+                    android:text="@string/login"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout></androidx.constraintlayout.widget.ConstraintLayout>

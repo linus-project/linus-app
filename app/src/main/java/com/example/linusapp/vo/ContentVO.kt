@@ -6,5 +6,6 @@ data class ContentVO(
     var content: String,
     var fkDistro: Long,
     var fkLevel: Int,
-    var image: Int
+    var image: Int,
+    var videoPath: String
 )

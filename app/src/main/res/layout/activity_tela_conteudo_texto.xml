@@ -79,11 +79,11 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageView
+                <VideoView
+                    android:id="@+id/videoView"
                     android:layout_width="300dp"
                     android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/noticia1" />
+                    android:layout_centerInParent="true" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

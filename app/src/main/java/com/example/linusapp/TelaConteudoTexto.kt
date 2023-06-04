@@ -1,12 +1,14 @@
 package com.example.linusapp
 
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
+import android.widget.MediaController
 import android.widget.TextView
 import android.widget.Toast
-import androidx.recyclerview.widget.RecyclerView
+import android.widget.VideoView
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
 import com.example.linusapp.vo.UserVO
@@ -24,6 +26,8 @@ class TelaConteudoTexto : AppCompatActivity() {
 
     private lateinit var userVO: UserVO
     private lateinit var contentVO: ContentVO
+    private lateinit var videoView: VideoView
+    private lateinit var mediaController: MediaController
     var isFavorited = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,7 +52,9 @@ class TelaConteudoTexto : AppCompatActivity() {
             intent.getLongExtra("idUser", 0),
             intent.getIntExtra("fkLevel", 0),
             0,
+            ""
         )
+        mediaController = MediaController(this)
         isFavorite()
         getContent()
         setContentView(R.layout.activity_tela_conteudo_texto)
@@ -73,6 +79,12 @@ class TelaConteudoTexto : AppCompatActivity() {
                         findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.drawable.star)
                     }
                     saveHistoryContent()
+                    videoView = findViewById(R.id.videoView);
+                    val uri: Uri = Uri.parse(contentVO.videoPath)
+                    videoView.setVideoURI(uri)
+                    mediaController.setAnchorView(videoView)
+                    mediaController.setMediaPlayer(videoView)
+                    videoView.setMediaController(mediaController)
                 } else {
                     Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
                     findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + contentVO.idContent +

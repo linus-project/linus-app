@@ -20,8 +20,7 @@ class TermoDeUso : AppCompatActivity() {
         binding = ActivityTermoDeUsoBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.botaoAceite.setOnClickListener{
-            val navegarSegunda = Intent(this, Cadastro::class.java)
-            startActivity(navegarSegunda)
+            finish()
         }
     }
 }

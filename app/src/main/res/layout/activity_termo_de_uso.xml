@@ -10,13 +10,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:layout_height="100dp"
+            android:gravity="center"
+            tools:ignore="MissingConstraints">
 
             <ImageView
                 android:layout_width="55dp"
@@ -42,13 +42,14 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="500dp"
             android:gravity="center_horizontal">
 
             <TextView
-                android:layout_width="350dp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/montserrat_light"
@@ -68,9 +69,9 @@
       4.3. Este Termo constitui o acordo integral entre as partes e substitui todos os acordos anteriores ou contemporâneos, escritos ou verbais, referentes ao Aplicativo.\n\n
 Ao utilizar o Aplicativo, você confirma que leu e concorda com os termos e condições estabelecidos neste Termo."
                 android:textColor="@color/white"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
-        </LinearLayout>
+        </ScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"

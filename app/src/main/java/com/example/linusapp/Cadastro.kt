@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import com.example.linusapp.utils.Api
+import com.example.linusapp.vo.UserVO
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import kotlinx.coroutines.CoroutineScope
@@ -32,12 +33,22 @@ class Cadastro : AppCompatActivity() {
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
-                    val prettyJson = gson.toJson(
-                        JsonParser.parseString(response.body()?.string())
-                    )
-                    val newsService = Intent(applicationContext, News::class.java)
-                    newsService.putExtra("response", prettyJson)
-                    startActivity(newsService)
+                    val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
+                    val activityContent = Intent(applicationContext, PrincipalActivity::class.java)
+                    val userResponse: UserVO = gson.fromJson(prettyJson, UserVO::class.java)
+                    activityContent.putExtra("idUser", userResponse.idUser)
+                    activityContent.putExtra("name", userResponse.name)
+                    activityContent.putExtra("username", userResponse.username)
+                    activityContent.putExtra("email", userResponse.email)
+                    activityContent.putExtra("password", userResponse.password)
+                    activityContent.putExtra("genre", userResponse.genre)
+                    activityContent.putExtra("bornDate", userResponse.bornDate)
+                    activityContent.putExtra("phoneNumber", userResponse.phoneNumber)
+                    activityContent.putExtra("adminKey", userResponse.adminKey)
+                    activityContent.putExtra("imageCode", userResponse.imageCode)
+                    activityContent.putExtra("fkLevel", userResponse.fkLevel)
+                    activityContent.putExtra("isBlocked", userResponse.isBlocked)
+                    startActivity(activityContent)
                 } else {
                     Toast.makeText(applicationContext, "Houve um erro ao cadastrar", Toast.LENGTH_SHORT).show()
                 }

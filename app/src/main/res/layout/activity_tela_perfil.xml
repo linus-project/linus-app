@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/bg_color_app"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaPerfil">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/foto_perfil"
+            app:cardCornerRadius="500dp">
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="#f2f2f2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/photoPerfil"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@mipmap/foto_perfil" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/alterPhoto"
+                android:layout_width="39dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="90dp"
+                android:background="@drawable/button_alt_foto"
+                android:onClick="register"
+                tools:ignore="OnClick" />
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:src="@mipmap/user" />
+
+            <EditText
+                android:id="@+id/name_register"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Nome"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/fc_light_gray"
+                app:backgroundTint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:src="@mipmap/user" />
+
+            <EditText
+                android:id="@+id/username_register"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Usuário"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/fc_light_gray"
+                app:backgroundTint="@color/white" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:src="@mipmap/mail" />
+
+            <EditText
+                android:id="@+id/email_register"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Email"
+                android:inputType="text"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/fc_light_gray"
+                app:backgroundTint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:src="@mipmap/lock" />
+
+            <EditText
+                android:id="@+id/password_register"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/fc_light_gray"
+                app:backgroundTint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:src="@mipmap/calendar" />
+
+            <EditText
+                android:id="@+id/data"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Data de Nascimento"
+                android:inputType="date"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/fc_light_gray"
+                app:backgroundTint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:backgroundTint="#000000"
+                android:src="@mipmap/phone" />
+
+            <EditText
+                android:id="@+id/confirm_password"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_semibold"
+                android:hint="Telefone"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:shadowColor="@color/white"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/fc_light_gray"
+                app:backgroundTint="@color/white" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button2"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:background="@drawable/botao_verde_arredondado"
+                android:fontFamily="@font/montserrat_semibold"
+                android:onClick="register"
+                android:text="Salvar"
+                android:textColor="@color/white"
+                tools:ignore="OnClick" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

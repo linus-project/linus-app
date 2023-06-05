@@ -47,7 +47,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:text="@string/titulo_conteudo"
                     android:textColor="#FFFFFF"
-                    android:textSize="25sp" />
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -66,15 +66,7 @@
                     android:fontFamily="@font/montserrat_medium"
                     android:text="@string/carrossel_conteudo"
                     android:textColor="#FFFFFF"
-                    android:textSize="17sp" />
-
-                <ImageView
-                    android:id="@+id/seta"
-                    android:layout_width="150dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_weight="1"
-                    android:src="@drawable/seta" />
+                    android:textSize="10sp" />
 
             </LinearLayout>
         </LinearLayout>

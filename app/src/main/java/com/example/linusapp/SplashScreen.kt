@@ -3,6 +3,7 @@ package com.example.linusapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.linusapp.ui.content.FavoriteContentFragment
 import java.util.Timer
 import kotlin.concurrent.schedule
 

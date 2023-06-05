@@ -8,7 +8,6 @@ import retrofit2.Retrofit
 
 object Api {
     var BASE_URL = "http://3.222.160.241"
-//    var BASE_URL = "http://192.168.1.106:8080"
 
     fun getUserApi() : UserApi {
         val retrofit = Retrofit.Builder()

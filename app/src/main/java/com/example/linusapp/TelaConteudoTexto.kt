@@ -1,5 +1,6 @@
 package com.example.linusapp
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.widget.MediaController
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.VideoView
+import androidx.core.view.isVisible
 import com.example.linusapp.utils.Api
 import com.example.linusapp.vo.ContentVO
 import com.example.linusapp.vo.UserVO
@@ -78,13 +80,23 @@ class TelaConteudoTexto : AppCompatActivity() {
                     } else {
                         findViewById<ImageView>(R.id.favorite_star).setBackgroundResource(R.drawable.star)
                     }
+                    if (contentVO.videoPath != "") {
+                        val uri: Uri = Uri.parse(contentVO.videoPath)
+                        videoView = findViewById(R.id.videoView);
+                        videoView.setVideoURI(uri)
+                        mediaController.setAnchorView(videoView)
+                        mediaController.setMediaPlayer(videoView)
+                        videoView.setMediaController(mediaController)
+                        videoView.setBackgroundResource(R.drawable.background_video)
+                        videoView.setOnClickListener {
+                            it.setBackgroundResource(0)
+                            startVideo()
+                        }
+                    } else {
+                        findViewById<VideoView>(R.id.videoView).isVisible = false
+                        findViewById<TextView>(R.id.videoText).isVisible = false
+                    }
                     saveHistoryContent()
-                    videoView = findViewById(R.id.videoView);
-                    val uri: Uri = Uri.parse(contentVO.videoPath)
-                    videoView.setVideoURI(uri)
-                    mediaController.setAnchorView(videoView)
-                    mediaController.setMediaPlayer(videoView)
-                    videoView.setMediaController(mediaController)
                 } else {
                     Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG).show()
                     findViewById<TextView>(R.id.content_text).text = "Erro => \n idContent = " + contentVO.idContent +
@@ -92,6 +104,10 @@ class TelaConteudoTexto : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    fun startVideo() {
+        videoView.start()
     }
 
      fun favoriteContent(component: View) {
@@ -151,5 +167,15 @@ class TelaConteudoTexto : AppCompatActivity() {
             service.saveHistoryContent(jsonObject.toString().toRequestBody("application/json".toMediaTypeOrNull()))
             withContext(Dispatchers.Main) {}
         }
+    }
+
+    fun redirectToDiscord(view: View) {
+        val discord = Intent(Intent.ACTION_VIEW)
+        discord.data = Uri.parse("https://discord.gg/J3kMDRYXbA")
+        startActivity(discord)
+    }
+
+    fun closeScreen(view: View) {
+        finish()
     }
 }

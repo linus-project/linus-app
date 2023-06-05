@@ -14,6 +14,22 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            >
+            <ImageView
+                android:id="@+id/back_arrow_button"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/back_arrow"
+                android:backgroundTint="@color/bg_white"
+                android:onClick="closeScreen"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="100dp"
             android:gravity="center"
             tools:ignore="MissingConstraints">
@@ -24,6 +40,25 @@
                 android:src="@mipmap/logo1" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/content_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="Conteúdo 1"
+                android:textAlignment="center"
+                android:textColor="@color/green_water"
+                android:textSize="40sp" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +77,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginLeft="-48dp"
+                android:layout_marginLeft="-42dp"
                 android:layout_marginTop="24dp"
                 android:fontFamily="@font/montserrat_semibold"
                 android:text="Favoritar"
@@ -50,28 +85,10 @@
                 android:textSize="10sp" />
         </LinearLayout>
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/content_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/montserrat_bold"
-                android:text="Conteúdo 1"
-                android:textAlignment="center"
-                android:textColor="@color/green_water"
-                android:textSize="40sp" />
-
-        </LinearLayout>
-
         <ScrollView
+            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="450dp">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -85,18 +102,21 @@
                     android:layout_height="200dp"
                     android:layout_centerInParent="true" />
 
+                <TextView
+                    android:id="@+id/videoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Toque para iniciar a reprodução"
+                    android:textColor="@color/green_water">
+
+                </TextView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
                     android:gravity="center_horizontal">
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="275dp"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:src="@mipmap/parte1" />
 
                     <TextView
                         android:id="@+id/content_text"
@@ -114,12 +134,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center_horizontal">
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="275dp"
-                        android:layout_marginLeft="5dp"
-                        android:src="@mipmap/parte2" />
-
                     <TextView
                         android:id="@+id/content_text_two"
                         android:layout_width="300dp"
@@ -132,28 +146,47 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp">
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:adjustViewBounds="true"
                         android:layout_marginLeft="20dp"
-                        android:src="@mipmap/curtir" />
+                        android:background="@drawable/happy_face"
+                        android:backgroundTint="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="Curtir"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginTop="2dp"/>
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="50dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
-                        android:src="@mipmap/descurtir" />
-
+                        android:background="@drawable/sad_face"
+                        android:backgroundTint="@color/white"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_light"
+                        android:text="Descurtir"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:layout_marginTop="2dp"/>
 
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal">
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="10dp">
 
                     <TextView
                         android:layout_width="300dp"
@@ -166,19 +199,21 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:gravity="center_horizontal">
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="8dp">
 
                     <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:src="@mipmap/discord"
-                        android:layout_marginTop="20dp"/>
+                        android:id="@+id/discord_button"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:background="@drawable/discord_logo_name"
+                        android:backgroundTint="@color/green_water"
+                        android:onClick="redirectToDiscord"/>
                 </LinearLayout>
             </LinearLayout>
-
-
         </ScrollView>
     </LinearLayout>
 

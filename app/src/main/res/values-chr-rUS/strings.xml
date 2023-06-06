@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LinUS</string>
+    <string name="ola">Hello!</string>
+    <string name="intro1">We are happy to have you  here...</string>
+    <string name="intro2">" Let's start? "</string>
+    <string name="cadastrar">Register</string>
+    <string name="login">Sing In</string>
+</resources>

@@ -1,5 +1,6 @@
 package com.example.linusapp.ui.news
 
+import android.icu.text.SimpleDateFormat
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -60,7 +61,7 @@ class NewsFragment : Fragment() {
                 if (response.isSuccessful) {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
-                    val newsList: List<NewsVO> = gson.fromJson(prettyJson, Array<NewsVO>::class.java).asList()
+                    val newsList: List<NewsVO> = gson.fromJson(prettyJson, Array<NewsVO>::class.java).asList().reversed()
                     recyclerView.adapter = NewsAdapter(newsList)
 
                 } else {
@@ -78,8 +79,11 @@ class NewsFragment : Fragment() {
 
         inner class NewsHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
             fun bind(noticia: NewsVO) {
+                val parser =  SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                val formatter = SimpleDateFormat("dd/MM/yyyy")
                 itemView.findViewById<TextView>(R.id.tituloNoticia).text = noticia.newsTitle
                 itemView.findViewById<TextView>(R.id.textoNoticia).text = noticia.news
+                itemView.findViewById<TextView>(R.id.horaNoticia).text = "Postado em: " + formatter.format(parser.parse(noticia.insertDate))
                 Glide
                     .with(context!!)
                     .load(noticia.image)

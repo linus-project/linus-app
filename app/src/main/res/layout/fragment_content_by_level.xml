@@ -5,7 +5,8 @@
     style="@style/bg_color_app"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.content.ContentByLevelFragment">
+    tools:context=".ui.content.ContentByLevelFragment"
+    android:id="@+id/content_by_level_fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,6 +31,7 @@
             android:gravity="center">
 
             <TextView
+                android:id="@+id/content_distro_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

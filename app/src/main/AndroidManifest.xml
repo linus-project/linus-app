@@ -27,7 +27,8 @@
             android:parentActivityName=".Cadastro"/>
         <activity
             android:name=".TelaConteudoTexto"
-            android:exported="true">
+            android:exported="true"
+            android:alwaysRetainTaskState="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

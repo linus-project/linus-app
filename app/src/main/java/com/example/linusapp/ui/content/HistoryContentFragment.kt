@@ -62,7 +62,6 @@ class HistoryContentFragment : Fragment() {
 
         init()
         setUpTransformer()
-
         historyContentViewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
@@ -115,6 +114,10 @@ class HistoryContentFragment : Fragment() {
                                 it.image = R.drawable.nivel_avancado
                             }
                         }
+                        if (it.content.length > 70) {
+                            it.content = it.content.substring(0,70)
+                        }
+                        it.content += "..."
                     }
                     adapter = ImageAdapter(userVO, contentList, historyContentViewPager)
                     historyContentViewPager.adapter = adapter

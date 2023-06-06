@@ -159,7 +159,13 @@ class FavoriteContentFragment : Fragment() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_basico }
+                    contentList.forEach {
+                        it.image = R.drawable.nivel_basico
+                        if (it.content.length > 100) {
+                            it.content = it.content.substring(0,100)
+                        }
+                        it.content += "..."
+                    }
                     adapter = ImageAdapter(userVO, contentList, viewPagerBasico)
                     viewPagerBasico.adapter = adapter
                     viewPagerBasico.offscreenPageLimit = 4
@@ -184,7 +190,13 @@ class FavoriteContentFragment : Fragment() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_intermediario }
+                    contentList.forEach {
+                        it.image = R.drawable.nivel_intermediario
+                        if (it.content.length > 100) {
+                            it.content = it.content.substring(0,100)
+                        }
+                        it.content += "..."
+                    }
                     adapter = ImageAdapter(userVO, contentList, viewPagerIntermediario)
                     viewPagerIntermediario.adapter = adapter
                     viewPagerIntermediario.offscreenPageLimit = 4
@@ -209,7 +221,13 @@ class FavoriteContentFragment : Fragment() {
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(JsonParser.parseString(response.body()?.string()))
                     val contentList: MutableList<ContentVO> = gson.fromJson(prettyJson, Array<ContentVO>::class.java).toMutableList()
-                    contentList.forEach { it.image = R.drawable.nivel_avancado }
+                    contentList.forEach {
+                        it.image = R.drawable.nivel_avancado
+                        if (it.content.length > 100) {
+                            it.content = it.content.substring(0,100)
+                        }
+                        it.content += "..."
+                    }
                     adapter = ImageAdapter(userVO, contentList, viewPagerAvancado)
                     viewPagerAvancado.adapter = adapter
                     viewPagerAvancado.offscreenPageLimit = 4

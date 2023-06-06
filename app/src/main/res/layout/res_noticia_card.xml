@@ -6,7 +6,7 @@
     android:background="#1e1e1e"
     android:padding="20dp"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="wrap_content"
     android:layout_marginBottom="20dp">
 
     <LinearLayout
@@ -29,12 +29,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Lorem ipsum dolor asimet Lorem ipsum dolor asimet Lorem ipsum dolor asimet" />
+
+        <TextView
+            android:id="@+id/horaNoticia"
+            android:textColor="@color/fc_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:text="Postado em 30/11/2022 às 18:34" />
+
+        <ImageView
+            android:layout_marginTop="3dp"
+            android:layout_weight="5"
+            android:id="@+id/imagemNoticia"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:radius="10dp"
+            android:background="@drawable/news_background" />
     </LinearLayout>
 
-    <ImageView
-        android:layout_weight="2"
-        android:id="@+id/imagemNoticia"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 </LinearLayout>
